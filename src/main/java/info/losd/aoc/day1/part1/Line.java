@@ -1,4 +1,4 @@
-package info.losd.aoc.day1;
+package info.losd.aoc.day1.part1;
 
 import java.util.ArrayList;
 import java.util.List;

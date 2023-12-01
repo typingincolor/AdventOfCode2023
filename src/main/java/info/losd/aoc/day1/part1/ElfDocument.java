@@ -1,4 +1,4 @@
-package info.losd.aoc.day1;
+package info.losd.aoc.day1.part1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,17 +10,20 @@ import java.util.List;
 public class ElfDocument {
     private final List<Line> lines = new ArrayList<>();
 
-    public ElfDocument(InputStream inputStream) throws IOException {
+    public ElfDocument() {
+
+    }
+
+    public ElfDocument(String s) throws IOException {
+        Class<ElfDocument> clazz = ElfDocument.class;
+        InputStream inputStream = clazz.getResourceAsStream(s);
+        assert inputStream != null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(new Line(line));
             }
         }
-    }
-
-    public ElfDocument() {
-
     }
 
     public ElfDocument add(String s) {

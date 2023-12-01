@@ -1,9 +1,8 @@
-package info.losd.aoc.day1;
+package info.losd.aoc.day1.part1;
 
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,9 +41,7 @@ public class DayOneTest {
 
     @Test
     void testReadingFromFile() throws IOException {
-        Class<DayOneTest> clazz = DayOneTest.class;
-        InputStream inputStream = clazz.getResourceAsStream("/test.txt");
-        ElfDocument builder = new ElfDocument(inputStream);
+        ElfDocument builder = new ElfDocument("/test.txt");
 
         assertEquals(142, builder.calculate(),"Expecting 142");
     }
