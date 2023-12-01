@@ -1,4 +1,4 @@
-package org.example.info.losd.aoc.day1;
+package info.losd.aoc.day1;
 
 import java.util.ArrayList;
 import java.util.List;

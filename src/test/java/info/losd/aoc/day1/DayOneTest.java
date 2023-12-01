@@ -1,11 +1,13 @@
 package info.losd.aoc.day1;
 
 import org.junit.jupiter.api.Test;
-import org.example.info.losd.aoc.day1.Line;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LineTest {
+public class DayOneTest {
     @Test
     void testDigitsAtBeginningAndEnd(){
         Line line = new Line("1abc2");
@@ -28,5 +30,22 @@ public class LineTest {
     void testSingleDigit(){
         Line line = new Line("treb7uchet");
         assertEquals(77, line.calculateCalibrationValue(), "Expecting 77");
+    }
+
+    @Test
+    void testElfDocument() {
+        ElfDocument builder = new ElfDocument();
+        builder.add("1abc2").add("pqr3stu8vwx").add("a1b2c3d4e5f").add("treb7uchet");
+
+        assertEquals(142, builder.calculate(),"Expecting 142");
+    }
+
+    @Test
+    void testReadingFromFile() throws IOException {
+        Class<DayOneTest> clazz = DayOneTest.class;
+        InputStream inputStream = clazz.getResourceAsStream("/test.txt");
+        ElfDocument builder = new ElfDocument(inputStream);
+
+        assertEquals(142, builder.calculate(),"Expecting 142");
     }
 }
