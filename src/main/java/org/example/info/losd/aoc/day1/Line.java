@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Line {
-    private String str;
+    private final String str;
 
     public Line(String s) {
         this.str = s;
